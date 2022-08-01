@@ -1,0 +1,77 @@
+
+<html>
+  <head>
+  <style>
+    body {
+      background-color:#f0f8ff;
+    }
+    div.video {
+      width: 45%;
+      height: 600px;
+      padding: 10px;
+      border: 5px solid gray;
+      margin: 0;
+    }
+    div.code {
+      width: 45%;
+      height: 600px;
+      padding: 10px;
+      border: 5px solid gray;
+      margin: 0;
+    }
+    
+    </style>
+    <title>SketchToApp</title>
+      <script
+  src="https://code.jquery.com/jquery-3.4.0.min.js"
+  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+        <h1 style="text-align:left;float:left;">Draw Your Website</h1> 
+        <h1 style="text-align:right;float:right;">Code Preview</h1> 
+        <hr style="clear:both;"/>
+        <div style="display: inline">
+            <div class="video" style="display: inline-block; background-color:#00294d; float:left">
+                    <img src="{{ url_for('video_feed') }}">
+                    <br>
+               
+            </div>
+            <div class="code" style="display: inline-block; background-color:#00294d; float:right;">
+                
+            </div>
+        </div>
+        <hr/>
+
+  <div style="display: inline-block">
+
+      <input id="draw" name="event" type="submit" value="draw">
+
+      <input id="stop" name="event" type="submit" value="stop">
+
+  </div>
+</body>
+<script>
+    $(document).ready(function () {
+        $("#draw").click(function () {
+            $.ajax({
+                url:"{{ url_for('video_draw') }}",
+                method:"GET",
+                data:{"event":"draw"},
+                success:function (data) {
+                }
+            })
+        });
+        $("#stop").click(function () {
+         $.ajax({
+                url:"{{ url_for('video_draw') }}",
+                method:"GET",
+                data:{"event":"stop"},
+                success:function (data) {
+                }
+            })
+        })
+    })
+</script>
+</html>
