@@ -1,0 +1,9 @@
+In order to use this app, you need a pen (or any object) with  green color. 
+When the pen (object) appears in front of camera, it will be catched and highlighted by an yellow circle.
+When you are ready for drawing, you need to press space button. When you want to stop drawing, 
+press space again
+After that machine learning library will recognize the object
+Try with drawing an apple
+
+
+************************************
